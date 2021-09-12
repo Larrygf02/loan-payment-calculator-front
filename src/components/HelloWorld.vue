@@ -25,6 +25,9 @@
         <label for="">Tasa de Interés Anual()</label>
         <input type="number" class="input">
       </div>
+      <div class="input_field">
+        <input type="submit" value="Simular" class="btn">
+      </div>
     </div>
   </div>
 </template>
@@ -111,5 +114,21 @@ export default {
 
   .main .form .input_field .input:focus{
     border: 1px solid #fec107;
+  }
+
+  .main .form .input_field .btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 0;
+    background: #fec107;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  .main .form .input_field .btn:hover {
+    background: #ffd658;
   }
 </style>
