@@ -131,4 +131,16 @@ export default {
   .main .form .input_field .btn:hover {
     background: #ffd658;
   }
+
+  @media (max-width: 420px) {
+    .main .form .input_field {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .main .form .input_field label{
+      margin-bottom: 5px;
+    }
+    
+  }
 </style>
