@@ -6,16 +6,16 @@
     <div class="form">
       <div class="input_field">
         <label for="">Monto</label>
-        <input type="number" class="input">
+        <input type="number" class="input" v-model="amount">
       </div>
       <div class="input_field">
         <label for="">Numero de cuotas</label>
-        <input type="number" class="input">
+        <input type="number" class="input" v-model="loan_term">
       </div>
       <div class="input_field">
         <label for="">Cuota doble</label>
         <div class="custom_select">
-          <select>
+          <select v-model="is_double_fee">
             <option value="false">No</option>
             <option value="true">Si</option>
           </select>
@@ -23,10 +23,10 @@
       </div>
       <div class="input_field">
         <label for="">Tasa de Interés Anual()</label>
-        <input type="number" class="input">
+        <input type="number" class="input" v-model="interest_rate">
       </div>
       <div class="input_field">
-        <input type="submit" value="Simular" class="btn">
+        <input type="submit" value="Simular" class="btn" v-on:click="simulate">
       </div>
     </div>
   </div>
@@ -34,9 +34,36 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data: function(){
+    return {
+      amount: 0,
+      loan_term: 0,
+      is_double_fee: 'false',
+      interest_rate: 0
+    }
+  },
+  methods: {
+    simulate: function() {
+      const data = {
+        'amount': this.amount,
+        'loan_term': this.loan_term,
+        'interest_rate': this.interest_rate
+      }
+
+      fetch('http://localhost:3000/calculator', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .catch(err => console.error("Error", err))
+      .then(response => console.log("Success", response))
+    }
   }
 }
 </script>
@@ -71,7 +98,7 @@ export default {
 
   .main .form .input_field label {
     width: 200px;
-    color: #757575;
+    /*color: #757575;*/
     margin-right: 10px;
     font-size: 14px;
   }
