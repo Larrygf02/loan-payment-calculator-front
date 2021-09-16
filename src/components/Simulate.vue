@@ -64,7 +64,7 @@ export default {
       }
       console.log(data)
 
-      fetch('http://localhost:3000/calculator', {
+      fetch('https://loan-calculator-back.herokuapp.com/calculator', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
