@@ -11,7 +11,7 @@
             </tr>
             <tr v-for="(item, i) in data" :key="i">
                 <td>{{ i + 1 }}</td>
-                <td></td>
+                <td>{{ item.payday }}</td>
                 <td>{{ item.amortization }}</td>
                 <td>{{ item.interest }}</td>
                 <td>{{ item.fee }}</td>
