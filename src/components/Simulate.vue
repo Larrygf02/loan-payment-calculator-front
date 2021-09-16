@@ -16,8 +16,8 @@
         <label for="">Cuota doble</label>
         <div class="custom_select">
           <select v-model="is_double_fee">
-            <option value="false">No</option>
-            <option value="true">Si</option>
+            <option :value="false">No</option>
+            <option :value="true">Si</option>
           </select>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default {
     return {
       amount: 0,
       loan_term: 0,
-      is_double_fee: 'false',
+      is_double_fee: false,
       interest_rate: 0,
       result: []
     }
@@ -59,8 +59,10 @@ export default {
       const data = {
         'amount': this.amount,
         'loan_term': this.loan_term,
-        'interest_rate': this.interest_rate
+        'interest_rate': this.interest_rate,
+        'is_double_fee': this.is_double_fee
       }
+      console.log(data)
 
       fetch('http://localhost:3000/calculator', {
         method: 'POST',
@@ -83,7 +85,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .main {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
     background: #fff;
     margin: 20px auto;
