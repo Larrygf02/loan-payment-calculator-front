@@ -4,13 +4,18 @@
 
 <script>
 import Simulate from './components/Simulate.vue'
-
+// import Vue from 'vue';
 export default {
   name: 'App',
   components: {
     Simulate
   }
 }
+/* new Vue({
+  components: {
+    Simulate
+  }
+}); */
 </script>
 
 <style>

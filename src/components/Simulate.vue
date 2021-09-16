@@ -29,20 +29,29 @@
         <input type="submit" value="Simular" class="btn" v-on:click="simulate">
       </div>
     </div>
+    <div class="result" v-if="result.length">
+      <Cronogram :data="result"></Cronogram>
+    </div>
   </div>
 </template>
 
 <script>
+import Cronogram from './Cronogram.vue'
+
 export default {
   props: {
     msg: String
+  },
+  components: {
+     Cronogram
   },
   data: function(){
     return {
       amount: 0,
       loan_term: 0,
       is_double_fee: 'false',
-      interest_rate: 0
+      interest_rate: 0,
+      result: []
     }
   },
   methods: {
@@ -62,7 +71,10 @@ export default {
       })
       .then(res => res.json())
       .catch(err => console.error("Error", err))
-      .then(response => console.log("Success", response))
+      .then(response => {
+        console.log("Success", response)
+        this.result = response;
+      })
     }
   }
 }
