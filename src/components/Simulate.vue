@@ -31,19 +31,23 @@
     </div>
     <div class="result" v-if="result.length">
       <Cronogram :data="result"></Cronogram>
+      <Downloads :data="result"></Downloads>
     </div>
   </div>
 </template>
 
 <script>
 import Cronogram from './Cronogram.vue'
+import Downloads from './Downloads.vue'
+
 
 export default {
   props: {
     msg: String
   },
   components: {
-     Cronogram
+     Cronogram,
+     Downloads
   },
   data: function(){
     return {
