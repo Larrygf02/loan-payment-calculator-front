@@ -1,12 +1,12 @@
 <template>
   <div class="main">
     <div class="title">
-      Simulador de Prestamos
+      Simulador de Préstamos
     </div>
     <div class="form">
       <div class="input_field">
         <label for="">Monto</label>
-        <input type="number" class="input" v-model="amount">
+        <input type="number" class="input" v-model="amount" @keypress="onlyNumbers($event)">
       </div>
       <div class="input_field">
         <label for="">Numero de cuotas</label>
@@ -77,6 +77,23 @@ export default {
         console.log("Success", response)
         this.result = response;
       })
+    },
+    onlyNumbers: function(evt) {
+      var theEvent = evt || window.event;
+
+      // Handle paste
+      if (theEvent.type === 'paste') {
+          key = event.clipboardData.getData('text/plain');
+      } else {
+      // Handle key press
+          var key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode(key);
+      }
+      var regex = /[0-9]/;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
     }
   }
 }
