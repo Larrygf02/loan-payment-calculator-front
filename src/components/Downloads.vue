@@ -1,15 +1,36 @@
 <template>
-    <div>
-        <button @click="downloadExcel">Descargar en Excel</button>
+    <div class="download">
+        <font-awesome-icon :icon="iconExcel" @click="downloadExcel" size="3x" color="green"/>
     </div>
 </template>
 
 <script>
+
 import xlsx from 'xlsx';
 import { saveAs } from 'file-saver';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons' 
 export default {
     props: ['data'],
+    data() {
+        return {
+            iconExcel: faFileExcel
+        }
+    },
+    components: {
+        FontAwesomeIcon
+    },
     methods: {
+        transformData: function() {
+            let columns = []
+            let header = ['NºCuotas', 'F.Vencimiento', 'Amortizacion', 'Interes', 'Cuota', 'Saldo Pendiente']
+            columns.push(header)
+            this.data.forEach((item, i) => {
+                const {payday, amortization, interest, fee, capital } = item
+                columns.push([(i+1), payday, amortization, interest, fee, capital])
+            })
+            return columns;
+        },
         createWorkbook: function() {
             const workbook = xlsx.utils.book_new();
             workbook.Props = {
@@ -19,7 +40,7 @@ export default {
                 CreatedDate: new Date()
             }
             workbook.SheetNames.push('Detalle')
-            let ws_data = [['hello', 'world']];
+            let ws_data = this.transformData();
             let ws = xlsx.utils.aoa_to_sheet(ws_data);
             workbook.Sheets["Detalle"] = ws;
             let wbout = xlsx.write(workbook, {bookType: 'xlsx', type: 'binary'})
@@ -39,3 +60,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .download {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+</style>
