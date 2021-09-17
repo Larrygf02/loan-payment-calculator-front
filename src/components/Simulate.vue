@@ -10,7 +10,7 @@
       </div>
       <div class="input_field">
         <label for="">Numero de cuotas</label>
-        <input type="number" class="input" v-model="loan_term">
+        <input type="number" class="input" v-model="loan_term" @keypress="onlyNumbers($event)">
       </div>
       <div class="input_field">
         <label for="">Cuota doble</label>
