@@ -28,7 +28,7 @@ export default {
 }
 
 #app {
-  background: #fec107;
+  background: #98ff96; /*fec107*/
   padding: 0 10px;
 }
 </style>

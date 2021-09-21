@@ -117,7 +117,7 @@ export default {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #fec107;
+    color: #98ff96; /*fec107 */
     text-transform: uppercase;
     text-align: center;
   }
@@ -175,7 +175,7 @@ export default {
   }
 
   .main .form .input_field .input:focus{
-    border: 1px solid #fec107;
+    border: 1px solid #5ccb5f; /*fec107 */
   }
 
   .main .form .input_field .btn {
@@ -183,15 +183,16 @@ export default {
     padding: 8px 10px;
     font-size: 15px;
     border: 0;
-    background: #fec107;
+    background: #98ff96; /*fec107 */
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
     outline: none;
+    font-weight: bold;
   }
 
   .main .form .input_field .btn:hover {
-    background: #ffd658;
+    background: #5ccb5f; /*ffd658 */
   }
 
   @media (max-width: 420px) {
