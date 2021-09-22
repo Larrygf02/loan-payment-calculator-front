@@ -26,6 +26,10 @@
         <input type="number" class="input" v-model="interest_rate">
       </div>
       <div class="input_field">
+        <label for="">Fecha de desembolso</label>
+        <input type="date" class="input" v-model="date">
+      </div>
+      <div class="input_field">
         <input type="submit" value="Simular" class="btn" v-on:click="simulate">
       </div>
     </div>
@@ -55,6 +59,7 @@ export default {
       loan_term: 0,
       is_double_fee: false,
       interest_rate: 0,
+      date: '',
       result: []
     }
   },
@@ -64,7 +69,8 @@ export default {
         'amount': this.amount,
         'loan_term': this.loan_term,
         'interest_rate': this.interest_rate,
-        'is_double_fee': this.is_double_fee
+        'is_double_fee': this.is_double_fee,
+        'disbursement_date': this.date
       }
       console.log(data)
 
