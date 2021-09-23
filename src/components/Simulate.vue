@@ -29,7 +29,7 @@
         <label for="">Fecha de desembolso</label>
         <input type="date" class="input" v-model="date">
       </div>
-      <div class="input_field">
+      <div class="input_field" v-if="isNotDisabled()">
         <input type="submit" value="Simular" class="btn" v-on:click="simulate">
       </div>
     </div>
@@ -104,6 +104,9 @@ export default {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();
       }
+    },
+    isNotDisabled: function() {
+      return (this.amount !== 0) & (this.loan_term !== 0) & (this.interest_rate !== 0) & (this.date !== '')
     }
   }
 }
