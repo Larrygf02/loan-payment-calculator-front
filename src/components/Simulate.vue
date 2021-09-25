@@ -126,7 +126,7 @@ export default {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #98ff96; /*fec107 */
+    color: #009d9a; /*98ff96 */
     text-transform: uppercase;
     text-align: center;
   }
@@ -184,7 +184,7 @@ export default {
   }
 
   .main .form .input_field .input:focus{
-    border: 1px solid #5ccb5f; /*fec107 */
+    border: 1px solid #005d5d; /*5ccb5f */
   }
 
   .main .form .input_field .btn {
@@ -192,7 +192,7 @@ export default {
     padding: 8px 10px;
     font-size: 15px;
     border: 0;
-    background: #98ff96; /*fec107 */
+    background: #009d9a; /*98ff96 */
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -201,7 +201,7 @@ export default {
   }
 
   .main .form .input_field .btn:hover {
-    background: #5ccb5f; /*ffd658 */
+    background: #005d5d; /*5ccb5f */
   }
 
   @media (max-width: 420px) {
