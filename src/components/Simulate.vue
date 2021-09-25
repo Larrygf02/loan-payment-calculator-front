@@ -117,7 +117,7 @@ export default {
   .main {
     max-width: 600px;
     width: 100%;
-    background: #fff;
+    background: #009d9a;/*fff */
     margin: 20px auto;
     padding: 30px;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
@@ -126,7 +126,7 @@ export default {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #009d9a; /*98ff96 */
+    color: #fff; /*009d9a */
     text-transform: uppercase;
     text-align: center;
   }
@@ -145,6 +145,8 @@ export default {
     /*color: #757575;*/
     margin-right: 10px;
     font-size: 14px;
+    color: #fff;
+    font-weight: bold;
   }
 
   .main .form .input_field .input {
@@ -184,7 +186,7 @@ export default {
   }
 
   .main .form .input_field .input:focus{
-    border: 1px solid #005d5d; /*5ccb5f */
+    border: 1px solid #fff; /*005d5d */
   }
 
   .main .form .input_field .btn {
@@ -192,8 +194,8 @@ export default {
     padding: 8px 10px;
     font-size: 15px;
     border: 0;
-    background: #009d9a; /*98ff96 */
-    color: #fff;
+    background: #EDF2F7; /*98ff96 */
+    color: #009d9a;
     cursor: pointer;
     border-radius: 3px;
     outline: none;
@@ -201,7 +203,7 @@ export default {
   }
 
   .main .form .input_field .btn:hover {
-    background: #005d5d; /*5ccb5f */
+    background: #fff; /*5ccb5f */
   }
 
   @media (max-width: 420px) {
