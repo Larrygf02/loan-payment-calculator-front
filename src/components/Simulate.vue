@@ -9,7 +9,7 @@
         <input type="number" class="input" v-model="amount" @keypress="onlyNumbers($event)">
       </div>
       <div class="input_field">
-        <label for="">Numero de cuotas</label>
+        <label for="">Número de cuotas</label>
         <input type="number" class="input" v-model="loan_term" @keypress="onlyNumbers($event)">
       </div>
       <div class="input_field">
